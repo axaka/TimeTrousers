@@ -110,6 +110,19 @@ public class Trigger2D : MonoBehaviour
 		target.ReceiveSignal(newSignal);
 	}
 
+	public void FireTargets(int newSignal = -1)
+	{
+		if (newSignal == -1)
+		{
+			newSignal = signal;
+		}
+
+		foreach (Interactable target in targets)
+		{
+			SendSignal(target, newSignal);
+		}
+	}
+
 	void Update()
 	{
 		
